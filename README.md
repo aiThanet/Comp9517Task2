@@ -17,5 +17,5 @@ user can draw a rectangular bounding box within the whole window. The system wil
 
 ## Reference
 This project use YOLOv3-SPP model implemented by ultraltyics team.
-![Github](https://github.com/ultralytics/yolov3)
+[Github](https://github.com/ultralytics/yolov3)
 
