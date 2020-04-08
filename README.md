@@ -15,3 +15,7 @@ user can draw a rectangular bounding box within the whole window. The system wil
 1. After drawing the bounding box, press Enter
 
 
+## Reference
+This project use YOLOv3-SPP model implemented by ultraltyics team.
+![Github](https://github.com/ultralytics/yolov3)
+
