@@ -164,6 +164,8 @@ def main(args):
     # Get bounding box from user
     global x1, y1, x2, y2, display, start_image, running_state
 
+    videos = []
+
     start_image = cv2.imread(proc_images[0])
     welcome_text =  "Draw a rectangle and press 'Enter' When you're ready"
     (text_width, text_height) = cv2.getTextSize(welcome_text, font, fontScale=1, thickness=thickness)[0]
@@ -223,13 +225,22 @@ def main(args):
         cv2.imshow('Task2', display)
         base = os.path.basename(image_path)
 
-        if not os.path.exists(output):
-            os.makedirs(output)
-        cv2.imwrite(os.path.join(output, base), display)
+        # if not os.path.exists(output):
+        #     os.makedirs(output)
+        # cv2.imwrite(os.path.join(output, base), display)
+
+        videos.appned(display)
         #wait no more than 60fps
         cv2.waitKey(int(1000/60))
    
     cv2.destroyAllWindows()
+
+    if not os.path.exists(output):
+        os.makedirs(output)
+    out = cv2.VideoWriter(os.path.join(output, 'output.avi'),cv2.VideoWriter_fourcc(*'DIVX'), 15, size)
+    for i in range(len(videos)):
+        out.write(videos[i])
+    out.release()
 
 
 # Model  Setting
