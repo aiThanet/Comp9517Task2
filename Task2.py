@@ -229,15 +229,19 @@ def main(args):
         #     os.makedirs(output)
         # cv2.imwrite(os.path.join(output, base), display)
 
-        videos.appned(display)
+        videos.append(display)
         #wait no more than 60fps
         cv2.waitKey(int(1000/60))
    
     cv2.destroyAllWindows()
 
+    height, width, layer = videos[0].shape
+
     if not os.path.exists(output):
         os.makedirs(output)
-    out = cv2.VideoWriter(os.path.join(output, 'output.avi'),cv2.VideoWriter_fourcc(*'DIVX'), 15, size)
+    FPS = 15
+    out = cv2.VideoWriter(os.path.join(output, 'output.avi'),cv2.VideoWriter_fourcc(*'DIVX'), FPS, ( width,height ))
+
     for i in range(len(videos)):
         out.write(videos[i])
     out.release()
